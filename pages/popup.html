@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Tumeo's Ward Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
 
       * ::selection{
@@ -25,14 +26,25 @@
         text-align: center;
         height: 30px;
         width: 70%;
-      }input[type="ward"]:focus{
+      }input[type="ward"]:focus, textarea:focus{
         border: solid 1px #63c;
         outline: none;
       }
-      div#window{
+      textarea{
+        display: none;
+        resize: none;
+      }
+      div#window, div.refresh{
         text-align:center;
       }
-
+      div.refresh{
+        position: absolute;
+        top: 1px;
+        right: 1px;
+      }
+      div.refresh a{
+        padding: 3px;
+      }
 	  p{
         text-align: center;
         width: auto;
@@ -131,10 +143,28 @@
             </p>
 
             <p>
-                <a class="corolho" type="button" name="save">Salvar</a>
-                <a class="corolho" type="button" name="query">Buscar</a>
+                <a title="Salvar" class="corolho" name="save">
+                    <i class="fa fa-floppy-o"></i>
+                </a>
+                <a title="Buscar" class="corolho" name="query">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a title="Deletar" class="corolho" name="delete">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+                <a title="Backup" class="corolho" name="backup">
+                    <i class="fa fa-server"></i>
+                </a>
+            </p>
+            <p>
+                <textarea readonly name="backup" rows="8" cols="40"></textarea>
             </p>
 	    </p>
+    </div>
+
+    <div class="refresh">
+        <a class="corolho" name="refresh"><i class="fa fa-refresh"></i></a>
+        <a class="corolho" name="close"><i class="fa fa-times"></i></a>
     </div>
 
   </body>
